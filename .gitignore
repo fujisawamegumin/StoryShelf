@@ -1,0 +1,7 @@
+*.zip
+*.exe
+*.dll
+*.pdb
+*.db
+*.db-shm
+*.db-wal
