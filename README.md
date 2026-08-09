@@ -4,6 +4,16 @@
 
 > 現在はβ版です。投稿サービス側の画面変更などにより、情報を取得できなくなる場合があります。
 
+## スクリーンショット
+
+タイルを折りたたんだ一覧画面です。
+
+![StoryShelfのタイル一覧](docs/images/dashboard-overview.png)
+
+タイルを展開すると、投稿先サービス固有の指標と前回取得時からの差分を確認できます。
+
+![StoryShelfの投稿先詳細](docs/images/destination-details.png)
+
 ## 対応サービス
 
 - カクヨム
