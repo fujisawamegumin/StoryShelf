@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "jp.estar.novel.public",
+  "version": "1.0.1",
+  "displayName": "エブリスタ",
+  "mark": "E",
+  "color": "#00A0E9",
+  "urlPattern": "^https?://(?:www\\.)?estar\\.jp/novels/(\\d+)(?:/viewer/?)?/?(?:[?#].*)?$",
+  "canonicalUrl": "https://estar.jp/novels/{1}",
+  "allowedHosts": ["estar.jp"],
+  "rateLimit": {
+    "refreshIntervalSeconds": 600,
+    "requestIntervalMilliseconds": 2000,
+    "maxConcurrentRequests": 1
+  },
+  "requests": [
+    {"id": "work", "url": "{canonicalUrl}"}
+  ],
+  "fields": {
+    "title": {
+      "source": "work",
+      "selector": "h1.title[itemprop='name']",
+      "fallbackSelector": "meta[property='og:title']",
+      "fallbackAttribute": "content",
+      "cleanupRegex": "\\s*[／|｜].*$",
+      "default": "タイトルを取得できませんでした"
+    },
+    "author": {
+      "source": "work",
+      "selector": "p.nickname a.nickname",
+      "fallbackSelector": "meta[property='og:title']",
+      "fallbackAttribute": "content",
+      "cleanupRegex": "^.*[／｜|]\\s*",
+      "default": "—"
+    },
+    "bookshelves": {
+      "source": "work",
+      "selector": ".counts .countValue:first-child > span:last-child",
+      "format": "number",
+      "default": "—"
+    },
+    "stars": {
+      "source": "work",
+      "selector": ".counts .countValue:last-child > span:last-child",
+      "format": "number",
+      "default": "—"
+    },
+    "episodeCount": {
+      "source": "work",
+      "regex": "全([\\d,]+)エピソード",
+      "format": "number",
+      "default": "—"
+    },
+    "characterCount": {
+      "source": "work",
+      "regex": "\\(([\\d,]+)文字\\)",
+      "format": "number",
+      "default": "—"
+    },
+    "updatedAt": {
+      "source": "work",
+      "regex": "更新日\\s+(\\d{4}/\\d{1,2}/\\d{1,2})",
+      "default": "—"
+    }
+  },
+  "titleField": "title",
+  "authorField": "author",
+  "metrics": [
+    {"field": "bookshelves", "label": "本棚", "unit": "件", "icon": "bookmark"},
+    {"field": "stars", "label": "スター", "unit": "個", "icon": "star"}
+  ],
+  "details": [
+    {"field": "episodeCount", "unit": "話", "icon": "episodes"},
+    {"field": "characterCount", "unit": "文字", "icon": "characters"},
+    {"field": "updatedAt", "unit": "更新", "icon": "updated"}
+  ]
+}

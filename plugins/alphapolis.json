@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "jp.co.alphapolis.novel.public",
+  "version": "1.0.0",
+  "displayName": "アルファポリス",
+  "mark": "A",
+  "color": "#F39800",
+  "urlPattern": "^https?://(?:www\\.)?alphapolis\\.co\\.jp/novel/(\\d+)/(\\d+)(?:/episode/\\d+)?/?(?:[?#].*)?$",
+  "canonicalUrl": "https://www.alphapolis.co.jp/novel/{1}/{2}",
+  "allowedHosts": ["alphapolis.co.jp"],
+  "rateLimit": {
+    "refreshIntervalSeconds": 600,
+    "requestIntervalMilliseconds": 2000,
+    "maxConcurrentRequests": 1
+  },
+  "requests": [
+    {"id": "work", "url": "{canonicalUrl}"}
+  ],
+  "fields": {
+    "title": {
+      "source": "work",
+      "selector": "h1.p-content-info__title",
+      "fallbackSelector": "meta[property='og:title']",
+      "fallbackAttribute": "content",
+      "cleanupRegex": "\\s*[｜|].*アルファポリス.*$",
+      "default": "タイトルを取得できませんでした"
+    },
+    "author": {
+      "source": "work",
+      "selector": "a.p-content-info__author",
+      "default": "—"
+    },
+    "points24h": {
+      "source": "work",
+      "selector": ".c-point--24h span",
+      "cleanupRegex": "pt$",
+      "default": "—"
+    },
+    "totalLikes": {
+      "source": "work",
+      "selector": ".p-content-info__meta-heart",
+      "default": "—"
+    },
+    "favorites": {
+      "source": "work",
+      "regex": "\"id\":\\d+,\"count\":\"([\\d,]+)\"",
+      "default": "—"
+    },
+    "episodeCount": {
+      "source": "work",
+      "regex": "\"episodeNo\":",
+      "regexCount": true,
+      "format": "number",
+      "default": "—"
+    },
+    "characterCount": {
+      "source": "work",
+      "regex": "文字数\\s+([\\d,]+)",
+      "default": "—"
+    },
+    "updatedAt": {
+      "source": "work",
+      "regex": "更新日時\\s+(\\d{4}\\.\\d{2}\\.\\d{2}\\s+\\d{2}:\\d{2})",
+      "default": "—"
+    }
+  },
+  "titleField": "title",
+  "authorField": "author",
+  "metrics": [
+    {"field": "points24h", "label": "24hポイント", "unit": "pt", "icon": "trending"},
+    {"field": "totalLikes", "label": "累計スキ", "unit": "件", "icon": "heart"},
+    {"field": "favorites", "label": "お気に入り", "unit": "人", "icon": "bookmark"}
+  ],
+  "details": [
+    {"field": "episodeCount", "unit": "話", "icon": "episodes"},
+    {"field": "characterCount", "unit": "文字", "icon": "characters"},
+    {"field": "updatedAt", "unit": "更新", "icon": "updated"}
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "id": "com.syosetu.ncode.public",
+  "version": "1.1.0",
+  "displayName": "小説家になろう",
+  "mark": "N",
+  "color": "#1677B8",
+  "urlPattern": "^https?://ncode\\.syosetu\\.com/([A-Za-z0-9]+)(?:/\\d+)?/?(?:[?#].*)?$",
+  "canonicalUrl": "https://ncode.syosetu.com/{1}/",
+  "allowedHosts": ["ncode.syosetu.com", "api.syosetu.com"],
+  "rateLimit": {
+    "refreshIntervalSeconds": 300,
+    "requestIntervalMilliseconds": 2000,
+    "maxConcurrentRequests": 1
+  },
+  "requests": [
+    {
+      "id": "api",
+      "url": "https://api.syosetu.com/novelapi/api/?out=json&ncode={path1}&of=t-w-gl-ga-l-gp-f-imp-r&opt=weekly",
+      "responseType": "json"
+    }
+  ],
+  "fields": {
+    "title": {
+      "source": "api",
+      "jsonPath": "[1].title",
+      "default": "タイトルを取得できませんでした"
+    },
+    "author": {
+      "source": "api",
+      "jsonPath": "[1].writer",
+      "default": "—"
+    },
+    "weeklyUnique": {
+      "source": "api",
+      "jsonPath": "[1].weekly_unique",
+      "format": "number",
+      "default": "—"
+    },
+    "totalRating": {
+      "source": "api",
+      "jsonPath": "[1].global_point",
+      "format": "number",
+      "default": "—"
+    },
+    "bookmarks": {
+      "source": "api",
+      "jsonPath": "[1].fav_novel_cnt",
+      "format": "number",
+      "default": "—"
+    },
+    "comments": {
+      "source": "api",
+      "jsonPath": "[1].impression_cnt",
+      "format": "number",
+      "default": "—"
+    },
+    "reviews": {
+      "source": "api",
+      "jsonPath": "[1].review_cnt",
+      "format": "number",
+      "default": "—"
+    },
+    "episodeCount": {
+      "source": "api",
+      "jsonPath": "[1].general_all_no",
+      "format": "number",
+      "default": "—"
+    },
+    "characterCount": {
+      "source": "api",
+      "jsonPath": "[1].length",
+      "format": "number",
+      "default": "—"
+    },
+    "lastPublishedAt": {
+      "source": "api",
+      "jsonPath": "[1].general_lastup",
+      "default": "—"
+    }
+  },
+  "titleField": "title",
+  "authorField": "author",
+  "metrics": [
+    {"field": "weeklyUnique", "label": "週間ユニーク", "unit": "人", "icon": "visitors"},
+    {"field": "totalRating", "label": "総合評価", "unit": "pt", "icon": "star"},
+    {"field": "bookmarks", "label": "ブックマーク", "unit": "件", "icon": "bookmark"},
+    {"field": "comments", "label": "感想", "unit": "件", "icon": "comment"},
+    {"field": "reviews", "label": "レビュー", "unit": "件", "icon": "review"}
+  ],
+  "details": [
+    {"field": "episodeCount", "unit": "話", "icon": "episodes"},
+    {"field": "characterCount", "unit": "文字", "icon": "characters"},
+    {"field": "lastPublishedAt", "unit": "最終掲載", "icon": "updated"}
+  ]
+}

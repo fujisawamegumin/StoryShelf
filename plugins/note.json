@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "id": "com.note.public",
+  "version": "1.0.0",
+  "displayName": "note",
+  "mark": "n",
+  "color": "#41C9B4",
+  "urlPattern": "^https?://(?:www\\.)?note\\.com/([A-Za-z0-9_-]+)/n/(n[A-Za-z0-9]+)(?:[/?#].*)?$",
+  "canonicalUrl": "https://note.com/{1}/n/{2}",
+  "allowedHosts": ["note.com"],
+  "rateLimit": {
+    "refreshIntervalSeconds": 600,
+    "requestIntervalMilliseconds": 2000,
+    "maxConcurrentRequests": 1
+  },
+  "requests": [
+    {"id": "article", "url": "{canonicalUrl}"}
+  ],
+  "fields": {
+    "title": {
+      "source": "article",
+      "selector": "h1.o-noteContentHeader__title",
+      "fallbackSelector": "meta[property='og:title']",
+      "fallbackAttribute": "content",
+      "cleanupRegex": "\\s*[｜|].*?note.*$",
+      "default": "タイトルを取得できませんでした"
+    },
+    "author": {
+      "source": "article",
+      "selector": ".o-noteContentHeader__name a",
+      "fallbackSelector": "meta[name='author']",
+      "fallbackAttribute": "content",
+      "default": "—"
+    },
+    "likes": {
+      "source": "article",
+      "selector": "button.o-noteLikeV3__count",
+      "default": "—"
+    },
+    "comments": {
+      "source": "article",
+      "selector": "button.o-viewComment span",
+      "default": "—"
+    },
+    "publishedAt": {
+      "source": "article",
+      "selector": ".o-noteContentHeader__date time",
+      "default": "—"
+    }
+  },
+  "titleField": "title",
+  "authorField": "author",
+  "metrics": [
+    {"field": "likes", "label": "スキ", "unit": "件", "icon": "heart"},
+    {"field": "comments", "label": "コメント", "unit": "件", "icon": "comment"}
+  ],
+  "details": [
+    {"field": "publishedAt", "unit": "公開", "icon": "published"}
+  ]
+}

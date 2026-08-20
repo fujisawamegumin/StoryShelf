@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "jp.kakuyomu.public",
+  "version": "1.0.0",
+  "displayName": "カクヨム",
+  "mark": "K",
+  "color": "#2B658D",
+  "urlPattern": "^https?://(?:www\\.)?kakuyomu\\.jp/works/(\\d+)(?:/.*)?$",
+  "canonicalUrl": "https://kakuyomu.jp/works/{1}",
+  "allowedHosts": ["kakuyomu.jp"],
+  "rateLimit": {
+    "refreshIntervalSeconds": 600,
+    "requestIntervalMilliseconds": 2000,
+    "maxConcurrentRequests": 1
+  },
+  "requests": [
+    {"id": "work", "url": "{canonicalUrl}"},
+    {"id": "accesses", "url": "{canonicalUrl}/accesses"}
+  ],
+  "fields": {
+    "title": {
+      "source": "work",
+      "selector": "h1",
+      "fallbackSelector": "meta[property='og:title']",
+      "fallbackAttribute": "content",
+      "cleanupRegex": "\\s*[（(].+?[）)]\\s*-\\s*カクヨム\\s*$|\\s*-\\s*カクヨム\\s*$",
+      "default": "タイトルを取得できませんでした"
+    },
+    "author": {
+      "source": "work",
+      "selector": "a[href^='/users/']",
+      "default": "—"
+    },
+    "totalPageViews": {
+      "source": "accesses",
+      "regex": "([\\d,]+)\\s*PV",
+      "default": "—"
+    },
+    "stars": {
+      "source": "work",
+      "regex": "★\\s*([\\d,]+)",
+      "default": "—"
+    },
+    "followers": {
+      "source": "work",
+      "regex": "([\\d,]+)\\s*小説のフォロワー",
+      "default": "—"
+    },
+    "supportComments": {
+      "source": "work",
+      "regex": "([\\d,]+)\\s*応援コメント",
+      "default": "—"
+    },
+    "episodeCount": {
+      "source": "work",
+      "regex": "(?:完結済|連載中)\\s*全?\\s*([\\d,]+)\\s*話",
+      "default": "—"
+    },
+    "characterCount": {
+      "source": "work",
+      "regex": "([\\d,]+)\\s*文字",
+      "default": "—"
+    },
+    "lastUpdated": {
+      "source": "work",
+      "regex": "(\\d{4}年\\d{1,2}月\\d{1,2}日)(?:\\s+\\d{1,2}:\\d{2})?\\s*更新",
+      "default": "—"
+    }
+  },
+  "titleField": "title",
+  "authorField": "author",
+  "metrics": [
+    {"field": "totalPageViews", "label": "累計PV", "unit": "PV", "icon": "visibility"},
+    {"field": "stars", "label": "おすすめ評価", "unit": "★", "icon": "star"},
+    {"field": "followers", "label": "作品フォロワー", "unit": "人", "icon": "bookmark"},
+    {"field": "supportComments", "label": "応援コメント", "unit": "件", "icon": "comment"}
+  ],
+  "details": [
+    {"field": "episodeCount", "unit": "話", "icon": "episodes"},
+    {"field": "characterCount", "unit": "文字", "icon": "characters"},
+    {"field": "lastUpdated", "unit": "更新", "icon": "updated"}
+  ]
+}

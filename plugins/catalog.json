@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "plugins": [
+    {
+      "id": "jp.kakuyomu.public",
+      "displayName": "カクヨム",
+      "version": "1.0.0",
+      "pluginSchemaVersion": 1,
+      "minimumAppVersion": "0.9.0",
+      "downloadUrl": "https://raw.githubusercontent.com/fujisawamegumin/StoryShelf/main/plugins/kakuyomu.json",
+      "sha256": "91cfb48bb42cc29a6b94a8a866d1cc1b7e48bc2806473fcb0402a854ecdb3abf"
+    },
+    {
+      "id": "com.note.public",
+      "displayName": "note",
+      "version": "1.0.0",
+      "pluginSchemaVersion": 1,
+      "minimumAppVersion": "0.9.0",
+      "downloadUrl": "https://raw.githubusercontent.com/fujisawamegumin/StoryShelf/main/plugins/note.json",
+      "sha256": "db19727764992ddb1cc39d8a8df73d5a9d501a4bbe3c88a0971d69ba6f109a70"
+    },
+    {
+      "id": "com.note.tales.public",
+      "displayName": "TALES",
+      "version": "1.0.0",
+      "pluginSchemaVersion": 1,
+      "minimumAppVersion": "0.9.0",
+      "downloadUrl": "https://raw.githubusercontent.com/fujisawamegumin/StoryShelf/main/plugins/tales.json",
+      "sha256": "8aac44bdae7ce9e639d73d114645769cd5450e9d3e8fd4794f5bc7ea02a2d122"
+    },
+    {
+      "id": "com.syosetu.ncode.public",
+      "displayName": "小説家になろう",
+      "version": "1.1.0",
+      "pluginSchemaVersion": 1,
+      "minimumAppVersion": "0.9.0",
+      "downloadUrl": "https://raw.githubusercontent.com/fujisawamegumin/StoryShelf/main/plugins/syosetu.json",
+      "sha256": "90be8255e1e1963856a51a3f3500a171369e544c596ebd690ac1dda303c0282d"
+    },
+    {
+      "id": "jp.co.alphapolis.novel.public",
+      "displayName": "アルファポリス",
+      "version": "1.0.0",
+      "pluginSchemaVersion": 1,
+      "minimumAppVersion": "0.9.0",
+      "downloadUrl": "https://raw.githubusercontent.com/fujisawamegumin/StoryShelf/main/plugins/alphapolis.json",
+      "sha256": "b2960a74bb61676a99c65f3d27d001dc752eb925a10e3cc2cf9be44274a17201"
+    },
+    {
+      "id": "jp.estar.novel.public",
+      "displayName": "エブリスタ",
+      "version": "1.0.1",
+      "pluginSchemaVersion": 1,
+      "minimumAppVersion": "0.9.0",
+      "downloadUrl": "https://raw.githubusercontent.com/fujisawamegumin/StoryShelf/main/plugins/estar.json",
+      "sha256": "8488a6e9f014d7a107a02f8bc9a8b37de3df8b6b0eb97bdbd31e99d4ce0a3098"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "id": "com.note.tales.public",
+  "version": "1.0.0",
+  "displayName": "TALES",
+  "mark": "T",
+  "color": "#6C5CE7",
+  "urlPattern": "^https?://tales\\.note\\.com/([A-Za-z0-9_-]+)/([A-Za-z0-9_-]+)(?:[/?#].*)?$",
+  "canonicalUrl": "https://tales.note.com/{1}/{2}",
+  "allowedHosts": ["tales.note.com"],
+  "rateLimit": {
+    "refreshIntervalSeconds": 600,
+    "requestIntervalMilliseconds": 2000,
+    "maxConcurrentRequests": 1
+  },
+  "requests": [
+    {"id": "work", "url": "{canonicalUrl}"}
+  ],
+  "fields": {
+    "title": {
+      "source": "work",
+      "selector": "h1",
+      "fallbackSelector": "meta[property='og:title']",
+      "fallbackAttribute": "content",
+      "cleanupRegex": "\\s*[｜|]\\s*TALES.*$",
+      "default": "タイトルを取得できませんでした"
+    },
+    "author": {
+      "source": "work",
+      "selector": "a.truncate.font-bold.text-text-secondary.text-xs",
+      "default": "—"
+    },
+    "pageViews": {
+      "source": "work",
+      "regex": "([\\d,]+)\\s+([\\d,]+)\\s+(\\d+)\\s*話",
+      "regexGroup": 1,
+      "default": "—"
+    },
+    "episodeLikes": {
+      "source": "work",
+      "regex": "([\\d,]+)\\s+([\\d,]+)\\s+(\\d+)\\s*話",
+      "regexGroup": 2,
+      "default": "—"
+    },
+    "episodeCount": {
+      "source": "work",
+      "regex": "([\\d,]+)\\s+([\\d,]+)\\s+(\\d+)\\s*話",
+      "regexGroup": 3,
+      "format": "number",
+      "default": "—"
+    },
+    "characterCount": {
+      "source": "work",
+      "regex": "\\\\\"episodeCharacterCount\\\\\":([\\d]+)",
+      "format": "number",
+      "default": "—"
+    },
+    "reviews": {
+      "source": "work",
+      "regex": "([\\d,]+)\\s*件の推薦レビュー",
+      "default": "0"
+    }
+  },
+  "titleField": "title",
+  "authorField": "author",
+  "metrics": [
+    {"field": "pageViews", "label": "累計PV", "unit": "PV", "icon": "visibility"},
+    {"field": "episodeLikes", "label": "エピソードのスキ", "unit": "件", "icon": "heart"},
+    {"field": "reviews", "label": "推薦レビュー", "unit": "件", "icon": "review"}
+  ],
+  "details": [
+    {"field": "episodeCount", "unit": "話", "icon": "episodes"},
+    {"field": "characterCount", "unit": "文字", "icon": "characters"}
+  ]
+}
