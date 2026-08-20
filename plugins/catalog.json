@@ -4,11 +4,11 @@
     {
       "id": "jp.kakuyomu.public",
       "displayName": "カクヨム",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "pluginSchemaVersion": 1,
       "minimumAppVersion": "0.9.0",
       "downloadUrl": "https://raw.githubusercontent.com/fujisawamegumin/StoryShelf/main/plugins/kakuyomu.json",
-      "sha256": "91cfb48bb42cc29a6b94a8a866d1cc1b7e48bc2806473fcb0402a854ecdb3abf"
+      "sha256": "5f883f33a21874fd55e2677655d6e40ae9ec8726a4877868a0b5b66347e62a21"
     },
     {
       "id": "com.note.public",
