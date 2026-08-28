@@ -4,6 +4,16 @@
 
 > 現在はβ版です。投稿サービス側の画面変更などにより、情報を取得できなくなる場合があります。
 
+## Windows版をダウンロード
+
+### [⬇ StoryShelf v0.9.1（Windows x64版）をダウンロード](https://github.com/fujisawamegumin/StoryShelf/releases/download/v0.9.1/StoryShelf-v0.9.1-windows-x64.zip)
+
+ZIPを展開し、フォルダー内の `StoryShelf.exe` を実行してください。
+
+> **注意:** Releases画面の「Source code (zip)」はアプリ本体ではありません。上のリンクから `StoryShelf-v0.9.1-windows-x64.zip` をダウンロードしてください。
+
+[見やすいダウンロードページを開く](https://fujisawamegumin.github.io/StoryShelf/)
+
 ## v0.9.1の主な変更
 
 - GitHubの公式カタログから、アプリ本体を入れ替えずにプラグインを新規追加・更新
@@ -34,7 +44,7 @@
 
 ## ダウンロードと起動
 
-1. このリポジトリの［Releases］から最新のWindows x64版ZIPをダウンロードします。
+1. [Windows版のダウンロードページ](https://fujisawamegumin.github.io/StoryShelf/)からWindows x64版ZIPをダウンロードします。
 2. ZIPを任意のフォルダーへ展開します。
 3. `StoryShelf.exe` をダブルクリックします。
 
