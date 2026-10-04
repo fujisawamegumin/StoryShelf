@@ -2,24 +2,26 @@
 
 複数の小説・記事投稿サービスで公開している自作品の反応を、タイル形式でまとめて確認するWindowsアプリです。
 
-> 現在はβ版です。投稿サービス側の画面変更などにより、情報を取得できなくなる場合があります。
+> 投稿サービス側の画面変更などにより、情報を取得できなくなる場合があります。
 
 ## Windows版をダウンロード
 
-### [⬇ StoryShelf v0.9.1（Windows x64版）をダウンロード](https://github.com/fujisawamegumin/StoryShelf/releases/download/v0.9.1/StoryShelf-v0.9.1-windows-x64.zip)
+### [⬇ StoryShelf v1.0.0（Windows x64版）をダウンロード](https://github.com/fujisawamegumin/StoryShelf/releases/download/v1.0.0/StoryShelf-v1.0.0-windows-x64.zip)
 
 ZIPを展開し、フォルダー内の `StoryShelf.exe` を実行してください。
 
-> **注意:** Releases画面の「Source code (zip)」はアプリ本体ではありません。上のリンクから `StoryShelf-v0.9.1-windows-x64.zip` をダウンロードしてください。
+> **注意:** Releases画面の「Source code (zip)」はアプリ本体ではありません。上のリンクから `StoryShelf-v1.0.0-windows-x64.zip` をダウンロードしてください。
 
 [見やすいダウンロードページを開く](https://fujisawamegumin.github.io/StoryShelf/)
 
-## v0.9.1の主な変更
+## v1.0.0の主な内容
 
+- 安定動作を確認した初の正式版
 - GitHubの公式カタログから、アプリ本体を入れ替えずにプラグインを新規追加・更新
 - 更新候補の一覧を表示し、ユーザーが確認した場合だけダウンロードとインストールを実行
 - 更新操作をタイル単位に整理し、各URLタイルの作品タイトルと削除表示を見やすく調整
 - プラグイン一覧の自動折り返しと、ウィンドウの最小サイズ設定に対応
+- 取得履歴を累積折れ線・増減棒グラフで表示し、マウスオーバーで日時と数値を確認可能
 
 ## スクリーンショット
 
@@ -50,7 +52,7 @@ ZIPを展開し、フォルダー内の `StoryShelf.exe` を実行してくだ�
 
 `StoryShelf.exe` だけを取り出さず、DLL、`data`、`plugins`フォルダーを同じ構成のまま使用してください。
 
-現在のβ版はコード署名されていないため、初回起動時にWindowsのSmartScreen警告が表示される場合があります。ダウンロード元とファイルのハッシュを確認し、信頼できる場合だけ実行してください。
+現在の配布版はコード署名されていないため、初回起動時にWindowsのSmartScreen警告が表示される場合があります。ダウンロード元とファイルのハッシュを確認し、信頼できる場合だけ実行してください。
 
 ## データの保存場所
 

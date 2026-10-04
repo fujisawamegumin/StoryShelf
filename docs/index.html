@@ -239,15 +239,15 @@
 
   <main class="wrap">
     <section class="hero">
-      <p class="eyebrow">Windows app · Beta</p>
+      <p class="eyebrow">Windows app · Version 1.0</p>
       <h1>StoryShelfを<br>はじめましょう</h1>
       <p class="lead">複数の小説・記事投稿サービスで公開している自作品の反応を、タイル形式でまとめて確認できるWindowsアプリです。</p>
 
-      <a id="download" class="download" href="https://github.com/fujisawamegumin/StoryShelf/releases/download/v0.9.1/StoryShelf-v0.9.1-windows-x64.zip">
+      <a id="download" class="download" href="https://github.com/fujisawamegumin/StoryShelf/releases/download/v1.0.0/StoryShelf-v1.0.0-windows-x64.zip">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span>Windows版をダウンロード<small id="version">StoryShelf v0.9.1 · Windows x64</small></span>
+        <span>Windows版をダウンロード<small id="version">StoryShelf v1.0.0 · Windows x64</small></span>
       </a>
       <p id="status" class="status" aria-live="polite">最新版を確認しています…</p>
 
@@ -267,13 +267,13 @@
 
   <footer>
     <div class="wrap">
-      <span>StoryShelf — Windows x64 / β版</span>
+      <span>StoryShelf — Windows x64 / Version 1.0</span>
       <a href="https://github.com/fujisawamegumin/StoryShelf/issues">不具合・要望を報告</a>
     </div>
   </footer>
 
   <script>
-    const fallbackUrl = "https://github.com/fujisawamegumin/StoryShelf/releases/download/v0.9.1/StoryShelf-v0.9.1-windows-x64.zip";
+    const fallbackUrl = "https://github.com/fujisawamegumin/StoryShelf/releases/download/v1.0.0/StoryShelf-v1.0.0-windows-x64.zip";
     const download = document.querySelector("#download");
     const version = document.querySelector("#version");
     const status = document.querySelector("#status");
@@ -295,7 +295,7 @@
       })
       .catch(() => {
         download.href = fallbackUrl;
-        status.textContent = "現在の配布版：StoryShelf v0.9.1";
+        status.textContent = "現在の配布版：StoryShelf v1.0.0";
       });
   </script>
 </body>
