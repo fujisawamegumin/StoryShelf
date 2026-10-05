@@ -13,11 +13,11 @@
     {
       "id": "com.note.public",
       "displayName": "note",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "pluginSchemaVersion": 1,
       "minimumAppVersion": "0.9.0",
       "downloadUrl": "https://raw.githubusercontent.com/fujisawamegumin/StoryShelf/main/plugins/note.json",
-      "sha256": "db19727764992ddb1cc39d8a8df73d5a9d501a4bbe3c88a0971d69ba6f109a70"
+      "sha256": "533417afcfcbddf79b101bc51c8aff82541b7f8e8ae81290ff08663c7bf84eb3"
     },
     {
       "id": "com.note.tales.public",

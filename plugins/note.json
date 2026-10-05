@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "com.note.public",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "note",
   "mark": "n",
   "color": "#41C9B4",
@@ -19,7 +19,7 @@
   "fields": {
     "title": {
       "source": "article",
-      "selector": "h1.o-noteContentHeader__title",
+      "selector": "h1",
       "fallbackSelector": "meta[property='og:title']",
       "fallbackAttribute": "content",
       "cleanupRegex": "\\s*[｜|].*?note.*$",
@@ -27,7 +27,7 @@
     },
     "author": {
       "source": "article",
-      "selector": ".o-noteContentHeader__name a",
+      "selector": ".o-noteContentHeader__name a, a.block.truncate[href^='https://note.com/']",
       "fallbackSelector": "meta[name='author']",
       "fallbackAttribute": "content",
       "default": "—"
@@ -35,16 +35,20 @@
     "likes": {
       "source": "article",
       "selector": "button.o-noteLikeV3__count",
+      "regex": "\\\\?\"likeCount\\\\?\"\\s*:\\s*(\\d+)",
+      "format": "number",
       "default": "—"
     },
     "comments": {
       "source": "article",
       "selector": "button.o-viewComment span",
+      "regex": "\\\\?\"commentCount\\\\?\"\\s*:\\s*(\\d+)",
+      "format": "number",
       "default": "—"
     },
     "publishedAt": {
       "source": "article",
-      "selector": ".o-noteContentHeader__date time",
+      "selector": "time[datetime]",
       "default": "—"
     }
   },
